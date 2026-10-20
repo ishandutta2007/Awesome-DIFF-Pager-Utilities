@@ -30,6 +30,8 @@ Contributions welcome! Open a PR to add/update entries. Keep descriptions factua
 
 ## Table of Contents
 
+- [Sector Overview & Market Dynamics](#sector-overview--market-dynamics)
+
 - [SaaS/Hosted Platforms](#saas-hosted-platforms)
 
 - [Open-Source GitHub Projects](#open-source-github-projects)
@@ -40,25 +42,19 @@ Contributions welcome! Open a PR to add/update entries. Keep descriptions factua
 
 
 
+## Sector Overview & Market Dynamics
+
+The dedicated code review, diff visualization, and inspection tools sector represents an estimated $2B–$3B market within the broader $150B+ software development tooling landscape, expanding quickly as AI-assisted software generation accelerates pull-request volume. The market is moderately fragmented: centralized ecosystem titans (GitHub, GitLab, Atlassian) capture mainline peer review and hosting, while independent diff and merge utilities thrive as specialized, best-of-breed software for deep semantic analysis, complex three-way merges, and local file comparison.
+
+
+
 ## SaaS/Hosted Platforms
 
-
-
-- **Beyond Compare**
-
-  **The commercial standard for file and folder comparison** on Windows, macOS, and Linux. Features **three-way merge**, **syntax highlighting for 100+ languages**, **folder synchronization**, and **FTP/SFTP/cloud storage** comparison. **The most feature-complete commercial diff tool**—but requires a paid license per platform and per user.
-
-
-
-- **Araxis Merge**
-
-  **Enterprise-grade visual file comparison and merge** for Windows and macOS. Features **three-way merge**, **syntax highlighting**, **folder comparison**, and **automation API** for CI/CD integration. **The enterprise choice** for teams needing deep automation and compliance features.
-
-
-
-- **P4Merge**
-
-  **Perforce's free visual merge tool** for Windows, macOS, and Linux. Features **three-way merge**, **image comparison**, and **directory diff**. **Free to use**—but it's a standalone tool that requires configuration to integrate with Git or other VCS.
+| Product | Valuation / Revenue | Pricing | Free Tier Limit | Highlights |
+| :--- | :--- | :--- | :--- | :--- |
+| **P4Merge** (Perforce) | ~$750M Revenue (Enterprise Valuation >$1B PE-backed) | $0 (Free standalone tool; Helix Core starts at $51/user/month) | Free forever (Unlimited standalone visual 2-way/3-way diff & merge; Helix Core free for up to 5 users/20 workspaces) | Free visual diff and 3-way merge utility with image comparison and directory diff capabilities. |
+| **Araxis Merge** (Araxis) | ~$2M Revenue | $129 one-time perpetual (Standard edition, 1-4 users; $269 for Pro edition) | 30-day free trial (Full evaluation access to all Professional 3-way compare and merge features; no perpetual free tier) | Enterprise-grade visual file comparison with 3-way merge, automation CLI/API, and folder synchronization. |
+| **Beyond Compare** (Scooter Software) | ~$500K–$1M Revenue | $35 one-time perpetual (Standard edition, 1-4 users; $70 for Pro edition) | 30 days of actual use free trial (Full access to all Pro features with no daily limits; no perpetual free tier) | Feature-complete commercial standard for file, folder, table, and FTP comparison with 3-way merge. |
 
 
 
