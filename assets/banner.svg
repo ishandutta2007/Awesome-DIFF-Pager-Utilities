@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="100%" height="340" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d14"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- Neon Accents -->
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+
+    <linearGradient id="diffAddGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#16a34a" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <linearGradient id="diffDelGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#dc2626" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <!-- Glowing filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .code-font { font-family: 'Fira Code', 'JetBrains Mono', Consolas, Monaco, monospace; }
+    .ui-font { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    
+    @keyframes floatBeam1 {
+      0% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+      50% { transform: translateY(-15px) translateX(25px); opacity: 0.6; }
+      100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+    }
+    
+    @keyframes floatBeam2 {
+      0% { transform: translateY(0px) translateX(0px); opacity: 0.2; }
+      50% { transform: translateY(18px) translateX(-20px); opacity: 0.5; }
+      100% { transform: translateY(0px) translateX(0px); opacity: 0.2; }
+    }
+
+    @keyframes pulseHunk {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(1.01); }
+    }
+
+    @keyframes cursorBlink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    .beam1 { animation: floatBeam1 8s ease-in-out infinite; }
+    .beam2 { animation: floatBeam2 10s ease-in-out infinite; }
+    .pulse-layer { animation: pulseHunk 6s ease-in-out infinite; transform-origin: center; }
+    .blink { animation: cursorBlink 1s infinite; }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="1200" height="340" rx="16" fill="url(#bgGrad)"/>
+  <rect width="1198" height="338" x="1" y="1" rx="15" fill="none" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Dynamic / Animated Background Layer: Diff Code Lines & Floating Glows -->
+  <g class="beam1" filter="url(#glow)">
+    <circle cx="180" cy="70" r="90" fill="#38bdf8" opacity="0.15"/>
+    <circle cx="1020" cy="270" r="110" fill="#818cf8" opacity="0.15"/>
+  </g>
+  <g class="beam2" filter="url(#glow)">
+    <circle cx="980" cy="80" r="100" fill="#c084fc" opacity="0.12"/>
+    <circle cx="150" cy="260" r="80" fill="#22c55e" opacity="0.1"/>
+  </g>
+
+  <!-- Animated Diff Visual Panels in Subtle Background -->
+  <g class="pulse-layer" opacity="0.35">
+    <!-- Left side subtle diff additions/deletions -->
+    <rect x="40" y="45" width="220" height="18" rx="4" fill="url(#diffDelGrad)"/>
+    <text x="50" y="58" class="code-font" font-size="11" fill="#f87171">- func computeLegacyDiff() [old]</text>
+
+    <rect x="40" y="70" width="260" height="18" rx="4" fill="url(#diffAddGrad)"/>
+    <text x="50" y="83" class="code-font" font-size="11" fill="#4ade80">+ func computeASTStructuralDiff() [tree-sitter]</text>
+
+    <rect x="40" y="95" width="190" height="18" rx="4" fill="url(#diffAddGrad)"/>
+    <text x="50" y="108" class="code-font" font-size="11" fill="#4ade80">+   syntax_highlight_pager: true</text>
+
+    <!-- Right side subtle terminal diff panels -->
+    <rect x="910" y="45" width="250" height="18" rx="4" fill="#1e293b"/>
+    <text x="920" y="58" class="code-font" font-size="11" fill="#94a3b8">@@ -124,7 +124,9 @@ delta/difftastic</text>
+
+    <rect x="910" y="70" width="230" height="18" rx="4" fill="url(#diffDelGrad)"/>
+    <text x="920" y="83" class="code-font" font-size="11" fill="#f87171">- core.pager = less -F -X</text>
+
+    <rect x="910" y="95" width="250" height="18" rx="4" fill="url(#diffAddGrad)"/>
+    <text x="920" y="108" class="code-font" font-size="11" fill="#4ade80">+ core.pager = delta --side-by-side</text>
+  </g>
+
+  <!-- Foreground Content: Header, Badges, Title & Subtitle (Completely Unobstructed) -->
+  <g>
+    <!-- Category Pill -->
+    <g transform="translate(600, 52)">
+      <rect x="-135" y="-14" width="270" height="28" rx="14" fill="#1e293b" stroke="#334155" stroke-width="1.2"/>
+      <circle cx="-112" cy="0" r="4" fill="#38bdf8"/>
+      <circle cx="-100" cy="0" r="4" fill="#22c55e"/>
+      <circle cx="-88" cy="0" r="4" fill="#c084fc"/>
+      <text x="12" y="5" text-anchor="middle" class="code-font" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="1">CURATED DEVELOPER STACK</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="600" y="130" text-anchor="middle" class="ui-font" font-size="44" font-weight="800" fill="url(#titleGrad)" letter-spacing="-0.5">
+      Awesome DIFF &amp; Pager Utilities
+    </text>
+
+    <!-- Subtitle / Tagline -->
+    <text x="600" y="172" text-anchor="middle" class="ui-font" font-size="17" font-weight="400" fill="#cbd5e1" letter-spacing="0.2">
+      High-performance pagers, syntax-aware visualizers, structural AST diffs &amp; 3-way merge engines
+    </text>
+
+    <!-- Feature Tag Badges Row -->
+    <g transform="translate(600, 222)">
+      <!-- Badge 1: Syntax Highlighting -->
+      <g transform="translate(-320, 0)">
+        <rect x="-75" y="-13" width="150" height="26" rx="13" fill="#0f172a" stroke="#0ea5e9" stroke-opacity="0.5" stroke-width="1.2"/>
+        <text x="0" y="4.5" text-anchor="middle" class="code-font" font-size="11" font-weight="500" fill="#38bdf8">🎨 Syntax Pagers</text>
+      </g>
+
+      <!-- Badge 2: Structural / AST Diff -->
+      <g transform="translate(-155, 0)">
+        <rect x="-75" y="-13" width="150" height="26" rx="13" fill="#0f172a" stroke="#10b981" stroke-opacity="0.5" stroke-width="1.2"/>
+        <text x="0" y="4.5" text-anchor="middle" class="code-font" font-size="11" font-weight="500" fill="#34d399">🌳 Semantic AST</text>
+      </g>
+
+      <!-- Badge 3: 3-Way Visual Merge -->
+      <g transform="translate(15, 0)">
+        <rect x="-80" y="-13" width="160" height="26" rx="13" fill="#0f172a" stroke="#8b5cf6" stroke-opacity="0.5" stroke-width="1.2"/>
+        <text x="0" y="4.5" text-anchor="middle" class="code-font" font-size="11" font-weight="500" fill="#a78bfa">🔀 3-Way Merge</text>
+      </g>
+
+      <!-- Badge 4: Terminal & GUI -->
+      <g transform="translate(185, 0)">
+        <rect x="-75" y="-13" width="150" height="26" rx="13" fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.5" stroke-width="1.2"/>
+        <text x="0" y="4.5" text-anchor="middle" class="code-font" font-size="11" font-weight="500" fill="#fbbf24">⚡ CLI &amp; GUI Tools</text>
+      </g>
+
+      <!-- Badge 5: Open-Source Focus -->
+      <g transform="translate(340, 0)">
+        <rect x="-65" y="-13" width="130" height="26" rx="13" fill="#0f172a" stroke="#ec4899" stroke-opacity="0.5" stroke-width="1.2"/>
+        <text x="0" y="4.5" text-anchor="middle" class="code-font" font-size="11" font-weight="500" fill="#f472b6">⭐ Open Source</text>
+      </g>
+    </g>
+
+    <!-- Terminal Prompt Line at Bottom -->
+    <g transform="translate(600, 280)">
+      <rect x="-240" y="-14" width="480" height="28" rx="6" fill="#090d16" stroke="#1e293b" stroke-width="1"/>
+      <text x="-225" y="4.5" class="code-font" font-size="12" fill="#64748b">$</text>
+      <text x="-210" y="4.5" class="code-font" font-size="12" fill="#38bdf8">git</text>
+      <text x="-185" y="4.5" class="code-font" font-size="12" fill="#f1f5f9">config --global core.pager</text>
+      <text x="4" y="4.5" class="code-font" font-size="12" fill="#a78bfa">"delta --side-by-side"</text>
+      <text x="175" y="4" class="code-font blink" font-size="14" fill="#38bdf8">▋</text>
+    </g>
+  </g>
+</svg>

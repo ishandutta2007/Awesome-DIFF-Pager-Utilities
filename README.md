@@ -1,173 +1,150 @@
-# Awesome-DIFF-Pager-Utilities
-
-## Top Diff & Pager Utilities Ecosystem
-
-
-
-**Curated List of SaaS Products & Open-Source GitHub Projects**  
-
-*Focused on Syntax Highlighting, Structural Understanding & Visual Merge*  
-
-**Last updated: October 2026**
-
-
-
-This repository tracks notable **SaaS platforms** and **open-source projects** for **Diff & Pager Utilities**. These tools enable developers to read code changes with clarity—from syntax-highlighted pagers that make `git diff` beautiful to structural diff engines that understand code semantics rather than just lines.
-
-
-
-**Examples** include delta, difftastic, diff-so-fancy, diffr, KDiff3, Meld, WinMerge, Beyond Compare, Araxis Merge, and P4Merge (the category leaders).
-
-
-
-**Open-source emphasis**: This section is heavily expanded with every major active project for self-hosting, syntax-aware diffing, and open merge tools—ideal for developers, code reviewers, and organizations seeking transparent, vendor-independent change inspection.
-
-
-
-Contributions welcome! Open a PR to add/update entries. Keep descriptions factual and link to official sites.
-
-
-
-## Table of Contents
-
-- [Sector Overview & Market Dynamics](#sector-overview--market-dynamics)
-
-- [SaaS/Hosted Platforms](#saas-hosted-platforms)
-
-- [Open-Source GitHub Projects](#open-source-github-projects)
-
-- [How to Contribute](#how-to-contribute)
-
-- [Disclaimer](#disclaimer)
-
-
-
-## Sector Overview & Market Dynamics
-
-The dedicated code review, diff visualization, and inspection tools sector represents an estimated $2B–$3B market within the broader $150B+ software development tooling landscape, expanding quickly as AI-assisted software generation accelerates pull-request volume. The market is moderately fragmented: centralized ecosystem titans (GitHub, GitLab, Atlassian) capture mainline peer review and hosting, while independent diff and merge utilities thrive as specialized, best-of-breed software for deep semantic analysis, complex three-way merges, and local file comparison.
-
-
-
-## SaaS/Hosted Platforms
-
-| Product | Valuation / Revenue | Pricing | Free Tier Limit | Highlights |
-| :--- | :--- | :--- | :--- | :--- |
-| **P4Merge** (Perforce) | ~$750M Revenue (Enterprise Valuation >$1B PE-backed) | $0 (Free standalone tool; Helix Core starts at $51/user/month) | Free forever (Unlimited standalone visual 2-way/3-way diff & merge; Helix Core free for up to 5 users/20 workspaces) | Free visual diff and 3-way merge utility with image comparison and directory diff capabilities. |
-| **Araxis Merge** (Araxis) | ~$2M Revenue | $129 one-time perpetual (Standard edition, 1-4 users; $269 for Pro edition) | 30-day free trial (Full evaluation access to all Professional 3-way compare and merge features; no perpetual free tier) | Enterprise-grade visual file comparison with 3-way merge, automation CLI/API, and folder synchronization. |
-| **Beyond Compare** (Scooter Software) | ~$500K–$1M Revenue | $35 one-time perpetual (Standard edition, 1-4 users; $70 for Pro edition) | 30 days of actual use free trial (Full access to all Pro features with no daily limits; no perpetual free tier) | Feature-complete commercial standard for file, folder, table, and FTP comparison with 3-way merge. |
-
-
-
-## Open-Source GitHub Projects
-
-
-
-- **delta**
-
-  **A syntax-highlighting pager for git, diff, and grep output** (MIT) — **the terminal diff standard** . **Drop-in replacement for git's default pager**—configure `core.pager = delta` and every diff gains **syntax highlighting, line numbers, and word-level diff highlighting** . **Side-by-side view** (`delta -s`) with line numbers in both panels . **Navigate mode** (`n/N`) jumps between files. **Theme support via bat/syntect**—Dracula, Nord, Monokai, Solarized, and custom themes . **Emulation modes for diff-highlight and diff-so-fancy** . **The reference implementation for terminal diff viewing**—**choose when you want maximum visual polish without leaving the terminal** .
-
-
-
-- **difftastic**
-
-  **A structural diff tool that understands syntax** (MIT) — **the semantic diff choice** . **Parses source code into abstract syntax trees (ASTs) using tree-sitter** and compares tree structures rather than lines . **Understands that a renamed variable is a single change**, not a deleted line plus an added line; **a moved function block is a relocation**, not hundreds of changed lines; **whitespace-only formatting changes are cosmetic** . **Supports 30+ languages** via tree-sitter parsers—recent releases improved parsing for Clojure, Common Lisp, CSS, Dart, Erlang, F#, OCaml, Python, Rust, Scala, TypeScript, and VHDL . **Version 0.69.0** understands when trailing punctuation isn't significant (`foo(1,)` and `foo(1)` are "no syntactic changes") for Go, Java, JavaScript, Python, Rust, Swift, and TypeScript . **The trade-off**: runs as an external tool rather than a native git pager—integration requires more setup . **Best for**: code review and refactoring where structural understanding matters .
-
-
-
-- **diff-so-fancy**
-
-  **The minimalist's diff beautifier** (MIT) — **the simplest upgrade from stock git diff** . **Strips leading +/- signs** and uses colored backgrounds instead. **Emphasizes the first line of each hunk** for context. **Removes noisy `index` and `diff --git a/...` headers** . **Works everywhere git works**—it's just a post-processor for standard diff output. **The trade-off**: no side-by-side views or structural diffing—purely readability improvement for unified diff format . **Best for**: teams wanting a cleaner diff experience with minimal setup and zero learning curve .
-
-
-
-- **diffr**
-
-  **LCS-based diff highlighting tool to ease code review from your terminal** (MIT) — **the word-level highlighting filter** . **Reads unified diff input on stdin** and writes enhanced output on stdout . **Improves on Git's diff-highlight script** with **word-level highlighting** when line-oriented output is too coarse . **Configure as a Git pager or interactive diff filter**—the main adoption path for daily review use . **Initial release 0.1.0 in 2019**; later versions added color customization, split reusable logic into `diffr-lib`, and added line-number display . **Best for**: developers wanting **word-level diff refinement** without a full pager replacement.
-
-
-
-- **KDiff3**
-
-  **Utility for comparing and merging files and directories** (GPL-2.0) — **the three-way merge standard** . **Compares and merges two or three input files or directories**. **Shows differences line by line and character by character**. **Automatic merge facility** and **integrated editor for resolving merge conflicts** . **KDE-KIO support** (ftp, sftp, http, fish, smb). **Intuitive graphical interface** with context menu integration for Dolphin and Windows Explorer . **Version 1.12** requires Qt 5.12+ and KF5 5.70+ . **Note**: **binary comparison temporarily disabled** due to stability issues; network comparison via non-file URLs may fail for some configurations . **The reference implementation for visual three-way merge**—**choose when you need to resolve merge conflicts with character-level precision**.
-
-
-
-- **Meld**
-
-  **Visual diff and merge tool targeted at developers** (GPL-2.0) — **the Python/GTK choice** . **Two- and three-way comparison** of files and directories. **Supports version control systems** (Git, Mercurial, Bazaar, SVN, CVS, Darcs) with **dynamic diff updates** . **Syntax highlighting**, **intra-line highlighting** for replace chunks, and **regex-based text filters** for suppressing formatting noise (whitespace, comments, CVS keywords) . **Directory comparison aligns entries by name** with case folding and Unicode NFC normalization; **file equality is tiered** (size + mtime → chunked byte comparison → normalization pass) . **The trade-off**: **no folding or collapsing of unchanged regions**—a deliberate consequence of panes being live editors over full buffers . **Best for**: Linux desktop developers wanting a **lightweight, GTK-native visual merge tool** with VCS integration.
-
-
-
-- **WinMerge**
-
-  **Open source differencing and merging tool for Windows** (GPL-2.0) — **the Windows standard** . **Compares both folders and files** with **visual text format** that's easy to understand . **Latest stable 2.16.46** (January 2025); **beta releases** add features like **Output Pane for Logs and Messages** and **Visual Studio Dark color scheme** . **Known issues**: crashes when comparing large files, very slow to compare significantly different directories . **Best for**: Windows developers needing a **free, native visual diff and merge tool**—**the most recommended open-source alternative to Diffchecker** .
-
-
-
-### Additional Strong Open-Source Options
-
-
-
-- **diff (GNU Diffutils)** — **The original file comparison utility** (GPL) — **the Unix standard**. **Line-by-line comparison with unified diff output**—the format that delta, difftastic, and diff-so-fancy all consume . **Best for**: scripting and baseline comparison where visual polish isn't needed.
-
-- **Kompare** — **KDE's graphical diff and merge tool** (GPL) — **the KDE-native choice** . **Best for**: KDE Plasma users wanting integrated diff tooling.
-
-- **Diffuse** — **Small and simple text merge tool in Python** (GPL) — **the lightweight merge choice** . **Best for**: quick merges without heavy dependencies.
-
-- **P4Merge** — **Perforce's free visual merge tool** — **the free commercial-grade choice** for image and three-way merge.
-
-- Community **n8n** workflows for diff notification and code review automation.
-
-
-
-**Frameworks for building custom systems**: Combine **delta** for daily `git diff` viewing with **difftastic** for structural code review, **diff-so-fancy** for minimalist teams, and **KDiff3** or **Meld** for visual three-way merge—creating a comprehensive diff stack that matches each workflow.
-
-
-
-## How to Contribute
-
-
-
-1. Fork the repo.
-
-2. Add/edit entries in `README.md` (follow existing format).
-
-3. Include: name, link, 1–2 sentence description, and whether it's SaaS or open-source.
-
-4. Submit PR with a short explanation.
-
-
-
-Star the repo if you find it useful!
-
-
-
-## Disclaimer
-
-
-
-- This is a **community-curated** list — not exhaustive and not an endorsement.
-
-- Diff and merge tools handling source code must follow security best practices, especially when comparing files from untrusted sources.
-
-- **The "pager vs. diff engine" distinction matters.** **delta, diff-so-fancy, and diffr** are **pagers**—they consume `git diff` output and make it prettier. They don't compute diffs . **difftastic** is a **diff engine**—it parses files into ASTs and computes its own structural diff . **KDiff3, Meld, and WinMerge** are **visual merge tools**—they compare and merge, with editors for conflict resolution. **Most developers use a pager for daily work and a visual tool for conflicts.**
-
-- **delta is the best daily driver for terminal users.** **Syntax highlighting, line numbers, side-by-side view, and theme support** make diffs dramatically more readable . **The trade-off**: it's text-based—it doesn't understand code structure. **Pair with difftastic for structural review when refactoring.**
-
-- **difftastic's AST-based approach catches what line-based tools miss.** **Renamed variables, moved code blocks, and whitespace-only changes are identified correctly** instead of appearing as massive diffs . **The trade-off**: it's slower on large repos and requires external tool integration—not a native git pager . **Use it selectively for code review and refactoring, not every diff.**
-
-- **diff-so-fancy is for minimalists.** **No side-by-side, no structural understanding**—just cleaner unified diff output . **The value is zero learning curve and universal compatibility**—if git works, diff-so-fancy works.
-
-- **KDiff3 and Meld are for merge conflicts.** **Character-level diffing and three-way merge** are essential when resolving conflicts . **WinMerge is the Windows choice** . **The trade-off**: these are GUI tools—they require a display server and are not suited for headless CI environments .
-
-- Self-hosted open-source solutions require proper configuration and integration. **Diff tools are daily drivers**—invest in your setup and code review becomes faster and less error-prone.
-
-
+# Awesome DIFF & Pager Utilities 🔍⚡
+
+<p align="center">
+  <img src="assets/banner.svg" alt="Awesome DIFF & Pager Utilities Banner" width="100%" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
+  <a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-DIFF-Pager-Utilities/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-DIFF-Pager-Utilities?style=social" alt="GitHub Stars" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-DIFF-Pager-Utilities/network/members"><img src="https://img.shields.io/github/forks/ishandutta2007/Awesome-DIFF-Pager-Utilities?style=social" alt="GitHub Forks" /></a>
+  <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
+</p>
 
 ---
 
+## 📖 Curated Ecosystem: Diff, Merge & Syntax-Aware Pager Utilities 🚀
 
+> **The ultimate curated directory of high-performance git pagers, AST-aware structural diff engines, visual 3-way merge tools, and code change inspection platforms.**
 
-**Made for developers, code reviewers, and organizations building transparent diff solutions.**  
+**Last updated: October 2026** 📅
 
-Let's make Diff & Pager Utilities more open, data-driven, and syntax-aware.
+This repository tracks notable **SaaS platforms** and **open-source GitHub projects** for **Diff & Pager Utilities**. These tools empower software engineers, DevOps leads, and code reviewers to read pull requests and local code changes with optimal clarity—from syntax-highlighted terminal pagers that elevate `git diff` to semantic tree-sitter diff engines that understand code structure rather than plain lines.
+
+*Looking for fast terminal workflows, side-by-side terminal views, or graphical merge conflict resolution? This list covers the category leaders and rising stars.* 🌟
+
+---
+
+## 📑 Table of Contents
+
+- [📊 Sector Overview & Market Dynamics](#-sector-overview--market-dynamics)
+- [🏢 SaaS & Hosted Platforms](#-saas--hosted-platforms)
+- [💻 Open-Source GitHub Projects](#-open-source-github-projects)
+- [🤝 How to Contribute](#-how-to-contribute)
+- [💖 Support & Sponsorship](#-support--sponsorship)
+- [📈 Star History](#-star-history)
+- [⚠️ Disclaimer](#️-disclaimer)
+
+---
+
+## 📊 Sector Overview & Market Dynamics
+
+The dedicated code review, diff visualization, and inspection tools sector represents an estimated **$2B–$3B** submarket within the broader **$150B+** software development tooling industry, expanding quickly as AI-assisted software generation accelerates pull-request volume and code churn. The market is **moderately fragmented**: centralized DevOps titans (GitHub, GitLab, Atlassian Bitbucket) capture baseline mainline peer review and repository hosting, while specialized diff engines and terminal/GUI utilities thrive as defensible, best-of-breed software for deep AST semantic analysis, complex 3-way merges, and high-productivity local file comparisons.
+
+---
+
+## 🏢 SaaS & Hosted Platforms
+
+| Product | Valuation / Revenue | Pricing | Free Tier Limit | Highlights |
+| :--- | :--- | :--- | :--- | :--- |
+| **[P4Merge](https://www.perforce.com/products/helix-core/merge-diff-tool-p4merge)** (Perforce) | ~$750M Revenue (Enterprise Valuation >$1B PE-backed) | $0 (Free standalone tool; Helix Core starts at $51/user/month) | Free forever (Unlimited standalone visual 2-way/3-way diff & merge; Helix Core free for up to 5 users/20 workspaces) | Enterprise visual diff and 3-way merge utility with image comparison, directory diff, and conflict resolution. |
+| **[Araxis Merge](https://www.araxis.com/merge/)** (Araxis) | ~$2M Revenue | $129 one-time perpetual (Standard edition, 1-4 users; $269 for Pro edition) | 30-day free trial (Full evaluation access to all Professional 3-way compare and merge features; no perpetual free tier) | Enterprise-grade visual file comparison with 3-way merge, automation CLI/API, and folder synchronization. |
+| **[Beyond Compare](https://www.scootersoftware.com/)** (Scooter Software) | ~$500K–$1M Revenue | $35 one-time perpetual (Standard edition, 1-4 users; $70 for Pro edition) | 30 days of actual use free trial (Full access to all Pro features with no daily limits; no perpetual free tier) | Commercial standard for file, folder, table, and FTP comparison with 3-way merge and multi-platform support. |
+
+---
+
+## 💻 Open-Source GitHub Projects
+
+Sorted by GitHub star count (descending) 🌟:
+
+- **[delta](https://github.com/dandavison/delta)** [![Stars](https://img.shields.io/github/stars/dandavison/delta?style=social&color=white)](https://github.com/dandavison/delta/stargazers) 🦀  
+  **A syntax-highlighting pager for git, diff, and grep output** (MIT) — *The modern terminal diff standard*. Configurable as a drop-in replacement via `core.pager = delta`. Delivers line numbers, side-by-side view (`-s`), word-level diffing, n-jump hunk navigation, and themes powered by `bat`/`syntect` (Dracula, Nord, Monokai, Solarized).
+
+- **[difftastic](https://github.com/Wilfred/difftastic)** [![Stars](https://img.shields.io/github/stars/Wilfred/difftastic?style=social&color=white)](https://github.com/Wilfred/difftastic/stargazers) 🌳  
+  **A structural diff tool that understands syntax** (MIT) — *The semantic diff revolution*. Parses code into ASTs using tree-sitter across 30+ languages. Understands variable renaming, moved function blocks, and formatting tweaks without triggering false-positive line changes.
+
+- **[diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)** [![Stars](https://img.shields.io/github/stars/so-fancy/diff-so-fancy?style=social&color=white)](https://github.com/so-fancy/diff-so-fancy/stargazers) ✨  
+  **The minimalist's diff beautifier** (MIT) — *Clean, human-readable terminal output*. Removes cluttering diff headers and +/- indicators, replacing them with subtle highlight colors and clear file hunk breaks with zero configuration overhead.
+
+- **[WinMerge](https://github.com/WinMerge/winmerge)** [![Stars](https://img.shields.io/github/stars/WinMerge/winmerge?style=social&color=white)](https://github.com/WinMerge/winmerge/stargazers) 🪟  
+  **Differencing and merging tool for Windows** (GPL-2.0) — *The classic visual comparison powerhouse*. Delivers graphical side-by-side text, directory, table, and image comparisons with inline editor capabilities, shell integration, and syntax highlighting.
+
+- **[diff-pdf](https://github.com/vslavik/diff-pdf)** [![Stars](https://img.shields.io/github/stars/vslavik/diff-pdf?style=social&color=white)](https://github.com/vslavik/diff-pdf/stargazers) 📄  
+  **Visual comparison tool for PDF documents** (GPL-2.0) — *Precision document diffing*. Visually compares two PDF files side-by-side or as an overlaid graphic diff highlighting page layout and typography deviations.
+
+- **[git-split-diffs](https://github.com/banga/git-split-diffs)** [![Stars](https://img.shields.io/github/stars/banga/git-split-diffs?style=social&color=white)](https://github.com/banga/git-split-diffs/stargazers) 🪓  
+  **Syntax-highlighted side-by-side diffs in terminal** (MIT) — *GitHub-style side-by-side view in CLI*. Splits unified diffs across terminal columns with character-level change highlighting and theme support.
+
+- **[git-cola](https://github.com/git-cola/git-cola)** [![Stars](https://img.shields.io/github/stars/git-cola/git-cola?style=social&color=white)](https://github.com/git-cola/git-cola/stargazers) 🥤  
+  **Sleek and powerful Git GUI and visual diff review client** (GPL-2.0) — *Cross-platform Git workhorse*. Features customizable diff viewers, partial hunk staging, DAG history visualizer, and keyboard-centric operation.
+
+- **[diffnav](https://github.com/dlvhdr/diffnav)** [![Stars](https://img.shields.io/github/stars/dlvhdr/diffnav?style=social&color=white)](https://github.com/dlvhdr/diffnav/stargazers) 🗂️  
+  **Interactive git diff pager with a GitHub-style file tree** (MIT) — *Fast navigation across large PRs*. Built on top of delta to combine syntax highlighting with a collapsible file tree pane directly in terminal.
+
+- **[Meld](https://github.com/GNOME/meld)** [![Stars](https://img.shields.io/github/stars/GNOME/meld?style=social&color=white)](https://github.com/GNOME/meld/stargazers) 🐧  
+  **Visual diff and merge tool targeted at developers** (GPL-2.0) — *The GNOME/GTK choice*. Supports two- and three-way visual comparisons of files and folders with live buffer editing and deep Git/SVN/Mercurial integration.
+
+- **[ydiff](https://github.com/ymattw/ydiff)** [![Stars](https://img.shields.io/github/stars/ymattw/ydiff?style=social&color=white)](https://github.com/ymattw/ydiff/stargazers) 📟  
+  **Side-by-side and auto-paged incremental colored diff tool** (BSD-3-Clause) — *Lightweight CLI visualizer*. Formats unified diffs into clean side-by-side columns with paging support in any ANSI terminal.
+
+- **[KDiff3](https://github.com/KDE/kdiff3)** [![Stars](https://img.shields.io/github/stars/KDE/kdiff3?style=social&color=white)](https://github.com/KDE/kdiff3/stargazers) 🧩  
+  **Utility for comparing and merging files and directories** (GPL-2.0) — *The three-way merge reference*. Character-by-character diff precision, automatic merge conflict resolution, and integrated directory tree synchronization.
+
+- **[diffr](https://github.com/mookid/diffr)** [![Stars](https://img.shields.io/github/stars/mookid/diffr?style=social&color=white)](https://github.com/mookid/diffr/stargazers) ⚡  
+  **LCS-based diff highlighting tool to ease code review** (MIT) — *Word-level diff refinement*. Reads unified diff input on stdin and highlights exact character and word changes when standard line diffs are too coarse.
+
+---
+
+## 🛠️ Recommended Stacks & Workflows
+
+- **Daily Terminal Driver**: Pair **`delta`** (`core.pager = delta --side-by-side --line-numbers`) with Git for readable, theme-aware terminal diffs.
+- **Structural Code Reviews**: Use **`difftastic`** when reviewing major refactors, renamed variables, or code formatting updates.
+- **Large Changeset Navigation**: Use **`diffnav`** for terminal sessions where navigating hundreds of modified files via a tree explorer is required.
+- **Complex Conflict Resolution**: Rely on **`KDiff3`**, **`Meld`**, or **`WinMerge`** for 3-way visual resolution when merging diverged upstream branches.
+
+---
+
+## 🤝 How to Contribute
+
+Contributions are warmly welcomed! 🌟
+
+1. 🍴 Fork the repository.
+2. 📝 Add or update tools in `README.md` keeping alphabetical/star-sorted order and factual descriptions.
+3. 🔗 Verify all links, licenses, and official websites.
+4. 🚀 Open a Pull Request with a short summary of the addition.
+
+---
+
+## 💖 Support & Sponsorship
+
+If you find this curated list helpful for your development workflow, please consider supporting the project:
+
+- ⭐ **Star this repository** to help others discover it!
+- 🍴 **Fork and share** with fellow developers and teams.
+- ☕ **Buy a coffee or sponsor** ongoing maintenance via the [GitHub Sponsors Dashboard](https://github.com/sponsors/ishandutta2007).
+
+Your support keeps this resource open, accurate, and continually updated! Thank you! ❤️
+
+---
+
+## 📈 Star History
+
+[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Awesome-DIFF-Pager-Utilities&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-DIFF-Pager-Utilities&type=date&legend=top-left)
+
+---
+
+## ⚠️ Disclaimer
+
+- This is a community-curated list and not an endorsement of any commercial product.
+- **Pager vs. Diff Engine vs. Visual Merge Tool**:
+  - *Pagers* (`delta`, `diff-so-fancy`, `diffnav`, `diffr`) beautify and paginate existing Git/CLI diff output.
+  - *Diff Engines* (`difftastic`) parse files into ASTs and compute structural differences independently.
+  - *Visual Merge Tools* (`WinMerge`, `Meld`, `KDiff3`, `Araxis Merge`, `Beyond Compare`, `P4Merge`) offer GUI editors and three-way conflict resolution.
+- Always observe appropriate security practices when inspecting diffs and code patches from untrusted sources.
+
+---
+
+<p align="center">
+  <b>Crafted with ❤️ for developers, code reviewers, and engineers building transparent diff workflows.</b>
+</p>
