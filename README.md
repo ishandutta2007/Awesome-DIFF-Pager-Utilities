@@ -56,7 +56,7 @@ The dedicated code review, diff visualization, and inspection tools sector repre
 
 ## 💻 Open-Source GitHub Projects
 
-Sorted by GitHub Stars_Count (descending) 🌟:
+Sorted by GitHub_Stars_Count (descending) 🌟:
 
 - **[delta](https://github.com/dandavison/delta)** [![Stars](https://img.shields.io/github/stars/dandavison/delta?style=social&color=white)](https://github.com/dandavison/delta/stargazers) 🦀  
   **A syntax-highlighting pager for git, diff, and grep output** (MIT) — *The modern terminal diff standard*. Configurable as a drop-in replacement via `core.pager = delta`. Delivers line numbers, side-by-side view (`-s`), word-level diffing, n-jump hunk navigation, and themes powered by `bat`/`syntect` (Dracula, Nord, Monokai, Solarized).
