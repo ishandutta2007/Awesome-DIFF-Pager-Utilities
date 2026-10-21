@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
   <a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
-  <a href="https://github.com/ishandutta2007/Awesome-DIFF-Pager-Utilities/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-DIFF-Pager-Utilities?style=social" alt="GitHub Stars" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-DIFF-Pager-Utilities/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-DIFF-Pager-Utilities?style=social" alt="GitHub_Stars" /></a>
   <a href="https://github.com/ishandutta2007/Awesome-DIFF-Pager-Utilities/network/members"><img src="https://img.shields.io/github/forks/ishandutta2007/Awesome-DIFF-Pager-Utilities?style=social" alt="GitHub Forks" /></a>
   <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
 </p>
@@ -56,7 +56,7 @@ The dedicated code review, diff visualization, and inspection tools sector repre
 
 ## 💻 Open-Source GitHub Projects
 
-Sorted by GitHub star count (descending) 🌟:
+Sorted by GitHub Stars_Count (descending) 🌟:
 
 - **[delta](https://github.com/dandavison/delta)** [![Stars](https://img.shields.io/github/stars/dandavison/delta?style=social&color=white)](https://github.com/dandavison/delta/stargazers) 🦀  
   **A syntax-highlighting pager for git, diff, and grep output** (MIT) — *The modern terminal diff standard*. Configurable as a drop-in replacement via `core.pager = delta`. Delivers line numbers, side-by-side view (`-s`), word-level diffing, n-jump hunk navigation, and themes powered by `bat`/`syntect` (Dracula, Nord, Monokai, Solarized).
